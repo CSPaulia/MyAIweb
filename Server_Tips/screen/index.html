@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>About - MyAIweb</title>
+        <title>screen - MyAIweb</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
         
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/css/dracula-ui.css">
-        <link rel="stylesheet" href="../assets/css/mkdocs.css">
+        <link rel="stylesheet" href="../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../assets/css/dracula-ui.css">
+        <link rel="stylesheet" href="../../assets/css/mkdocs.css">
 
         
-            <link  rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+            <link  rel="icon" type="image/x-icon" href="../../assets/img/favicon.ico">
         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
@@ -64,14 +64,14 @@
         <ul class="mb-5 drac-list drac-list-none">
             
             <li class="drac-box">
-                <a href=".."
+                <a href="../.."
                     class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Home
                 </a>
             </li>
             <li class="drac-box">
-                <a href=".."
+                <a href="../.."
                     class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#paper-notes-collapse" aria-expanded="false">
@@ -81,7 +81,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../Paper_Notes/2D_List/"
+        <a href="../../Paper_Notes/2D_List/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             2D
@@ -99,7 +99,7 @@
             <ul class="mb-5 drac-list drac-list-none">
                     
     <li class="drac-box-ternary">
-        <a href="../Paper_Notes/3D/3D_Occ_List/"
+        <a href="../../Paper_Notes/3D/3D_Occ_List/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             3D Occupancy
@@ -112,8 +112,8 @@
                 </div>
             </li>
             <li class="drac-box">
-                <a href=".."
-                    class="
+                <a href="../.."
+                    class=" active 
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#server-tips-collapse" aria-expanded="false">
                     Server Tips
@@ -122,8 +122,8 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../Server_Tips/screen/"
-            class="
+        <a href="./"
+            class=" active 
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             screen
         </a>
@@ -156,12 +156,28 @@
                     <!-- block preview -->
                     <li class="nav-item">
                             
+        <div class="container">
+            <div class="row row-preview">
+                <div class="col">
+                    <a href="../../Paper_Notes/3D/3D_Occ_List/"
+                        class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
+                        <i class="fa fa-arrow-left"></i> Previous
+                    </a>
+                </div>
+                <div class="col">
+                    <a 
+                        class="btn-preview drac-btn drac-text-white--hover disabled" style="padding-left: 3%;">
+                        Next <i class="fa fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
                     </li>
                     <!--  endblock -->
 
                     <!-- block search -->
                     <li class="nav-item"><div role="search" class="search-box">
-	<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+	<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
 		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
 		placeholder="Search docs" title="Type search term here" />
 	</form>
@@ -186,7 +202,48 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><p>This is about me page　</p></p>
+        <p><h1 id="screen">screen基本命令</h1>
+<ul>
+<li>新建一个screen会话</li>
+</ul>
+<pre><code>screen -S &lt;名字&gt;
+</code></pre>
+<ul>
+<li>查看所有screen会话</li>
+</ul>
+<pre><code>screen -ls
+</code></pre>
+<ul>
+<li>恢复之前分离的会话</li>
+</ul>
+<pre><code>screen -r &lt;会话ID&gt;
+</code></pre>
+<ul>
+<li>退出当前screen会话</li>
+</ul>
+<pre><code>键盘点击ctrl+a , 然后按d
+</code></pre>
+<ul>
+<li>查看当前所在会话(id.name)</li>
+</ul>
+<pre><code>echo $STY
+</code></pre>
+<ul>
+<li>
+<p>关闭会话
+如果在会话之中，输入exit或者Ctrl+d来终止这个会话。成功终止后，如果有其他处于Attached状态的screen界面，他就会跳到那个界面中，如果没有，他就会跳到默认界面上。</p>
+</li>
+<li>
+<p>删除会话</p>
+</li>
+</ul>
+<pre><code>screen -X -S session_name quit
+</code></pre>
+<ul>
+<li>清理会话</li>
+</ul>
+<pre><code>screen -wipe #清理那些dead的会话
+</code></pre></p>
     </article>
 </section>
             <!-- endblock -->
@@ -205,11 +262,11 @@
 
     </main>
 
-        <script>var base_url = '..';</script>
-        <script src="../assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../assets/js/bootstrap.bundle.min.js""></script>
-        <script src="../assets/js/mkdocs.js""></script>
-			<script src="../search/main.js" defer></script>
+        <script>var base_url = '../..';</script>
+        <script src="../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../assets/js/mkdocs.js""></script>
+			<script src="../../search/main.js" defer></script>
 
 </body>
 

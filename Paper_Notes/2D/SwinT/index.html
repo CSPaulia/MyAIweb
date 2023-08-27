@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>About - MyAIweb</title>
+        <title>Swin Transformer - MyAIweb</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,12 +12,12 @@
         
 
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="../assets/css/dracula-ui.css">
-        <link rel="stylesheet" href="../assets/css/mkdocs.css">
+        <link rel="stylesheet" href="../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../assets/css/dracula-ui.css">
+        <link rel="stylesheet" href="../../../assets/css/mkdocs.css">
 
         
-            <link  rel="icon" type="image/x-icon" href="../assets/img/favicon.ico">
+            <link  rel="icon" type="image/x-icon" href="../../../assets/img/favicon.ico">
         
             <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
                 <script>hljs.initHighlightingOnLoad();</script>
@@ -64,14 +64,14 @@
         <ul class="mb-5 drac-list drac-list-none">
             
             <li class="drac-box">
-                <a href=".."
+                <a href="../../.."
                     class="
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     Home
                 </a>
             </li>
             <li class="drac-box">
-                <a href=".."
+                <a href="../../.."
                     class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#paper-notes-collapse" aria-expanded="false">
@@ -81,7 +81,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../Paper_Notes/2D_List/"
+        <a href="../../2D_List/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             2D
@@ -99,7 +99,7 @@
             <ul class="mb-5 drac-list drac-list-none">
                     
     <li class="drac-box-ternary">
-        <a href="../Paper_Notes/3D/3D_Occ_List/"
+        <a href="../../3D/3D_Occ_List/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             3D Occupancy
@@ -112,7 +112,7 @@
                 </div>
             </li>
             <li class="drac-box">
-                <a href=".."
+                <a href="../../.."
                     class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#server-tips-collapse" aria-expanded="false">
@@ -122,7 +122,7 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="../Server_Tips/screen/"
+        <a href="../../../Server_Tips/screen/"
             class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             screen
@@ -161,7 +161,7 @@
 
                     <!-- block search -->
                     <li class="nav-item"><div role="search" class="search-box">
-	<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+	<form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
 		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
 		placeholder="Search docs" title="Type search term here" />
 	</form>
@@ -186,7 +186,28 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><p>This is about me page　</p></p>
+        <p><h1 id="swin-transformer">Swin Transformer</h1>
+<p>论文名：Swin Transformer: Hierarchical Vision Transformer using Shifted Windows</p>
+<h2 id="1">1.论文思路</h2>
+<ul>
+<li>相比于 <a href="../ViT/">ViT</a> 模型直接对全图做注意力机制，Swin Transformer 选择将整张图划分成一个个 <strong>Window</strong>，在 <strong>Window</strong> 里面做注意力机制</li>
+<li>与 ViT 相同的是，Swin Transformer 同样将图像划分成一个个 <strong>Patch</strong>，只不过在每一层 Transformer 中的 <strong>Patch</strong> 大小不太一样</li>
+<li>在 Swin Transformer 中，<strong>每一个 Window 始终包含 7*7 个 Patch</strong></li>
+</ul>
+<p><img alt="window" src="../SwinT_Pic/1.jpeg" /></p>
+<ul>
+<li>此外，为了能够将 <strong>Window</strong> 和 <strong>Window</strong> 联系起来，Swin Transformer 选择将 <strong>Window</strong> 采用 <strong>Shift</strong>，类似于 CNN 中的滑窗操作</li>
+</ul>
+<p><img alt="shift" src="../SwinT_Pic/2.jpeg" /></p>
+<p><img alt="masked-MSA" src="../SwinT_Pic/8.jpeg" /></p>
+<h2 id="2">2.总体流程</h2>
+<p><img alt="overall" src="../SwinT_Pic/3.jpeg" /></p>
+<p>对比一下 ViT 复杂度：</p>
+<p><img alt="O" src="../SwinT_Pic/4.jpeg" /></p>
+<p>其中 MSA 指的是多头注意力机制，W-MSA 指的是 Window-多头注意力机制</p>
+<p><img alt="computation" src="../SwinT_Pic/5.jpeg" /></p>
+<p>每个 Transformer Block 严格执行以下流程：</p>
+<p><img alt="process" src="../SwinT_Pic/7.jpeg" /></p></p>
     </article>
 </section>
             <!-- endblock -->
@@ -205,11 +226,11 @@
 
     </main>
 
-        <script>var base_url = '..';</script>
-        <script src="../assets/js/jquery-3.3.1.slim.min.js""></script>
-        <script src="../assets/js/bootstrap.bundle.min.js""></script>
-        <script src="../assets/js/mkdocs.js""></script>
-			<script src="../search/main.js" defer></script>
+        <script>var base_url = '../../..';</script>
+        <script src="../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../../assets/js/mkdocs.js""></script>
+			<script src="../../../search/main.js" defer></script>
 
 </body>
 
