@@ -1,0 +1,13 @@
+site_name: MyAIweb
+nav:
+- Home: index.md
+- Paper Notes:
+    - 2D: Paper_Notes/2D_List.md
+    - 3D: 
+        - 3D Occupancy: Paper_Notes/3D/3D_Occ_List.md
+- Server Tips:
+    - screen: Server_Tips/screen.md
+- Github Tips: Github_Tips/upload.md
+
+theme:
+    name: dracula
