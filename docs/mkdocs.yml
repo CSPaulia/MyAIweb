@@ -8,6 +8,10 @@ nav:
 - Server Tips:
     - screen: Server_Tips/screen.md
 - Github Tips: Github_Tips/upload.md
+- System Tips:
+    - Ubuntu: 
+        - Hardware: System_Tips/Ubuntu/Hardware.md
+        - Command: System_Tips/Ubuntu/Command.md
 
 theme:
     name: dracula
