@@ -2,6 +2,8 @@
 
 来自知乎的 [mkdocs配置和使用](https://zhuanlan.zhihu.com/p/383582472)
 
+[Mkdocs Material使用记录](https://shafish.cn/blog/mkdocs/)
+
 ## Welcome to MkDocs
 
 For full documentation visit [mkdocs.org](https://www.mkdocs.org).
