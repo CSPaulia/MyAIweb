@@ -7,3 +7,7 @@
 1. [Cross Entropy & KL Divergence](Loss/CE.md)
 2. [Focal Loss](Loss/Focal.md)
 
+## Params
+
+1. [FLOPs](Params/FLOPs.md)
+
