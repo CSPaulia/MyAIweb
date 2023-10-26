@@ -9,10 +9,6 @@
       
       
       
-        <link rel="prev" href="../../2D_List/">
-      
-      
-        <link rel="next" href="../../../Server_Tips/screen/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -20,7 +16,7 @@
     
     
       
-        <title>3D Occupancy - MyAIweb</title>
+        <title>Lovasz Loss - MyAIweb</title>
       
     
     
@@ -64,6 +60,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#lovasz-loss" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -96,7 +97,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              3D Occupancy
+              Lovasz Loss
             
           </span>
         </div>
@@ -202,20 +203,18 @@
       
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
         
           
           <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
@@ -229,7 +228,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             Paper Notes
@@ -242,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../2D_List/" class="md-nav__link">
+      <a href="../../../Paper_Notes/2D_List/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -260,20 +259,18 @@
                 
   
   
-    
-  
   
     
     
     
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
         
           
           <label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
@@ -287,7 +284,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             3D
@@ -298,16 +295,9 @@
                 
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../Paper_Notes/3D/3D_Occ_List/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -316,7 +306,6 @@
   
 
       </a>
-      
     </li>
   
 
@@ -552,7 +541,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../DL_Skills/Skills/" class="md-nav__link">
+      <a href="../../Skills/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -582,6 +571,37 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#lovasz-loss_1" class="md-nav__link">
+    Lovasz Loss的推导
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lovasz-loss_2" class="md-nav__link">
+    Lovasz Loss在多类分割中的应用
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#lovasz-loss_3" class="md-nav__link">
+    Lovasz Loss在多类分割中的代码流程
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -596,9 +616,81 @@
                   
 
 
-  <h1>3D Occupancy</h1>
-
-
+<h1 id="lovasz-loss">Lovasz Loss</h1>
+<h2 id="lovasz-loss_1">Lovasz Loss的推导</h2>
+<p>IoU (intersection-over-union，也叫jaccard index)是自然图像分割比赛中常用的一个衡量分割效果的评价指标，所以一个自然的想法就是能否将IoU作为loss function来直接优化。交并比公式：</p>
+<div class="arithmatex">\[
+J_c(y^{*},\widetilde{y}) = \frac{\vert \{y^{*}=c\} \cap \{\widetilde{y}=c\}\vert}{\vert \{y^{*}=c\} \cup \{\widetilde{y}=c\}\vert}
+\]</div>
+<p>其中<span class="arithmatex">\(y^{*}\)</span>表示Ground Truth标签，<span class="arithmatex">\(\widetilde{y}\)</span>表示预测标签，<span class="arithmatex">\(\vert \cdot \vert\)</span>表示集合中的元素个数。可以看出上式的值是介于0到1之间的，由此可以设计出损失函数：</p>
+<div class="arithmatex">\[
+\Delta_{J_c}(y^{*},\widetilde{y})=1-J_c(y^{*},\widetilde{y})
+\]</div>
+<p>这个损失函数是离散的，无法直接求导，需要对其做<strong>光滑延拓</strong>。</p>
+<p>改写一下<span class="arithmatex">\(\Delta_{J_c}\)</span>,</p>
+<div class="arithmatex">\[
+\Delta_{J_c} = 1-J_c(y^{*},\widetilde{y}) = \frac{\vert M_c \vert}{\vert \{y^{*}=c\} \cup M_c \vert} \tag{1}
+\]</div>
+<p>其中，<span class="arithmatex">\(M_c(y^{*},\widetilde{y}) = \{y^{*}=c,\widetilde{y}\neq c\} \cup \{y^{*} \neq c,\widetilde{y}=c\}\)</span>，<span class="arithmatex">\(M_c\)</span>是损失函数的自变量，它表达网络分割结果与Ground Truth标签不匹配的集合。<span class="arithmatex">\(M_c\)</span>的定义域为<span class="arithmatex">\(\{0,1\}^p\)</span>，即<span class="arithmatex">\(M_c \in \{0,1\}^p\)</span>，<span class="arithmatex">\(p\)</span>表示集合<span class="arithmatex">\(M_c\)</span>中像素的个数。</p>
+<p>由于(1)是次模（submodular）函数，故可以对其做<strong>光滑延拓</strong>。</p>
+<p><strong>定义1</strong> 若一个集合函数<span class="arithmatex">\(\Delta:\{0,1\}^p \rightarrow \mathbb{R}\)</span>对于所有的集合<span class="arithmatex">\(A,B \in \{0,1\}^p\)</span>满足</p>
+<div class="arithmatex">\[
+\Delta(A) + \Delta(B) \geq \Delta(A \cup B) + \Delta(A \cap B)
+\]</div>
+<p>则我们称<span class="arithmatex">\(\Delta\)</span>是<strong>次模函数</strong>。</p>
+<p><strong>定义2</strong> <strong>Lovasz extension</strong> 现存在一集合函数<span class="arithmatex">\(\Delta:\{0,1\}^p \rightarrow \mathbb{R}\)</span>且<span class="arithmatex">\(\Delta(\pmb{0})=0\)</span>，则其Lovasz extension为</p>
+<div class="arithmatex">\[
+\overline{\Delta} = \sum_{i=1}^p m_i g_i(\pmb{m}) \tag{2}
+\]</div>
+<div class="arithmatex">\[
+g_i(m) = \Delta(\{\pi_1,\cdots,\pi_i\}) - \Delta(\{\pi_1,\cdots,\pi_{i-1}\})
+\]</div>
+<p><span class="arithmatex">\(\pi\)</span>是一个数组，根据元素<span class="arithmatex">\(\pmb{m}\)</span>降序排序。例如，<span class="arithmatex">\(x_{\pi_1} \geq x_{\pi_2} \geq \cdots \geq x_{\pi_p}\)</span>。</p>
+<p>此时\overline{\Delta}已经是一个连续、分段线性的函数了，可以直接对误差<span class="arithmatex">\(m\)</span>求导，导数为<span class="arithmatex">\(g(m)\)</span>。</p>
+<h2 id="lovasz-loss_2">Lovasz Loss在多类分割中的应用</h2>
+<p>假设<span class="arithmatex">\(F_i(c)\)</span>表示的是模型最后输出的像素<span class="arithmatex">\(i\)</span>预测为类别<span class="arithmatex">\(c\)</span>的非归一化分数，则可以通过softmax函数将<span class="arithmatex">\(F_i(c)\)</span>归一化得到像素<span class="arithmatex">\(i\)</span>预测为类别<span class="arithmatex">\(c\)</span>的概率：</p>
+<div class="arithmatex">\[
+f_i(c) = \frac{e^{F_i(c)}}{\sum_{c' \in C} e^{F_i(c')}}
+\]</div>
+<p>那么(2)中的<span class="arithmatex">\(m_i(c)\)</span>可以定义为</p>
+<div class="arithmatex">\[
+m_i(c) = \left\{
+\begin{aligned}
+&amp; 1-f_i(c) &amp; \text{if}~c=y_i^{*} \\
+&amp; f_i(c) &amp; \text{otherwise}
+\end{aligned}
+\right.
+\]</div>
+<p>那么损失函数为</p>
+<div class="arithmatex">\[
+loss(\pmb{f}(c)) = \overline{\Delta_{J_c}}(\pmb{m}(c))
+\]</div>
+<p>考虑到类别平均mIoU的计算方式，最终的损失函数为</p>
+<div class="arithmatex">\[
+loss(\pmb{f}) = \frac{1}{\vert C \vert} \sum_{c \in C} \overline{\Delta_{J_c}}(\pmb{m}(c))
+\]</div>
+<h2 id="lovasz-loss_3">Lovasz Loss在多类分割中的代码流程</h2>
+<p><strong>步骤1</strong> 计算预测结果的误差</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">signs</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">predictions</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">logits</span> <span class="o">*</span> <span class="n">Variable</span><span class="p">(</span><span class="n">signs</span><span class="p">))</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">errors_sorted</span><span class="p">,</span> <span class="n">perm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>这一步得到(2)中的<span class="arithmatex">\(m_i\)</span>。</p>
+<p><strong>步骤2</strong> 计算IoU得分</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">gts</span> <span class="o">=</span> <span class="n">gt_sorted</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">intersection</span> <span class="o">=</span> <span class="n">gts</span> <span class="o">-</span> <span class="n">gt_sorted</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">union</span> <span class="o">=</span> <span class="n">gts</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">gt_sorted</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">jaccard</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">intersection</span> <span class="o">/</span> <span class="n">union</span>
+</code></pre></div>
+<p>这一步得到(1)的值，即IoU得分。</p>
+<p><strong>步骤3</strong> 根据IoU得分计算Lovasz extension的梯度</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">jaccard</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">jaccard</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">p</span><span class="p">]</span> <span class="o">-</span> <span class="n">jaccard</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>这一步得到(2)中的<span class="arithmatex">\(g_i(\pmb{m})\)</span>。</p>
+<p><strong>步骤4</strong> 计算Loss</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">errors_sorted</span><span class="p">),</span> <span class="n">Variable</span><span class="p">(</span><span class="n">grad</span><span class="p">))</span>
+</code></pre></div>
+<p>这一步得到(2)的值。</p>
 
 
 

@@ -689,55 +689,55 @@
 <li>安装略</li>
 <li>
 <p>配置 Git：</p>
-<pre><code>git config --global user.name "Your Name"
-git config --global user.email "your_email@example.com"
-</code></pre>
+<div class="highlight"><pre><span></span><code>git config --global user.name &quot;Your Name&quot;
+git config --global user.email &quot;your_email@example.com&quot;
+</code></pre></div>
 <p>这里的 "Your Name" 和 "your_email@example.com" 分别为你的用户名和邮箱地址</p>
 </li>
 <li>
 <p>检查 Git 是否已经配置用户名和邮箱：</p>
-<pre><code>git config --global user.name
+<div class="highlight"><pre><span></span><code>git config --global user.name
 git config --global user.email
-</code></pre>
+</code></pre></div>
 </li>
 </ol>
 <h2 id="3github">3.上传文件到Github（本地仓库–&gt;远程仓库）</h2>
 <ol>
 <li>
 <p>初始化 Git 仓库, 执行以下命令：</p>
-<pre><code>git init
-</code></pre>
+<div class="highlight"><pre><span></span><code>git init
+</code></pre></div>
 </li>
 <li>
 <p>将 csj_project 项目文件夹添加到本地仓库中，执行以下命令：</p>
-<pre><code>git add csj_project/
+<div class="highlight"><pre><span></span><code>git add csj_project/
 #或者输入
 git add .
-</code></pre>
+</code></pre></div>
 </li>
 <li>
 <p>将当前工作目录中的更改保存到本地代码仓库中，执行以下命令：</p>
-<pre><code>git commit -m "Initial commit"
-</code></pre>
+<div class="highlight"><pre><span></span><code>git commit -m &quot;Initial commit&quot;
+</code></pre></div>
 </li>
 <li>
 <p>在 GitHub 上创建一个新的远程仓库，获取复制该仓库的 SSH 或 HTTPS 链接</p>
 </li>
 <li>
 <p>将本地仓库与远程仓库进行关联，执行以下命令：</p>
-<pre><code>git remote add origin &lt;远程仓库链接&gt; 
+<div class="highlight"><pre><span></span><code>git remote add origin &lt;远程仓库链接&gt; 
 &lt;远程仓库链接&gt;就是你刚才复制的仓库的 SSH 或 HTTPS 链接，例如我的就是： 
 https://github.com/Thomas-b-programmer/djangoProject_for_ResearchGroup(库的名称).git 
 完整命令 
 git remote add origin https://github.com/Thomas-b-programmer/Github-tutorial.git
-</code></pre>
+</code></pre></div>
 </li>
 <li>
 <p>将本地仓库中的代码推送到远程仓库中，执行以下命令：</p>
-<pre><code>#git push origin 分支名
+<div class="highlight"><pre><span></span><code>#git push origin 分支名
 #完整命令
 git push -u origin master
-</code></pre>
+</code></pre></div>
 </li>
 </ol>
 
@@ -778,7 +778,7 @@ git push -u origin master
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": ["content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.f886a092.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
       <script src="../../assets/javascripts/bundle.aecac24b.min.js"></script>
