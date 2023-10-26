@@ -6,6 +6,7 @@
 
 1. [Cross Entropy & KL Divergence](Loss/CE.md)
 2. [Focal Loss](Loss/Focal.md)
+3. [Lovasz-Softmax Loss](Loss/Lovasz.md)
 
 ## Params
 
