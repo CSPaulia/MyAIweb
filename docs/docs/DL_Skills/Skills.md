@@ -12,3 +12,11 @@
 
 1. [FLOPs](Params/FLOPs.md)
 
+## Activation Function
+
+1. [GELU](Activation/GELU.md)
+
+## Model Blocks
+
+1. [Cross Attention](Model_Blocks/cross_attention.md)
+
