@@ -602,11 +602,14 @@
 </code></pre></div>
 <p>将"/dev/sdb"替换为您要挂载的硬盘设备的路径</p>
 <p>4.自动挂载：</p>
+<p>查看 uuid</p>
+<div class="highlight"><pre><span></span><code>sudo blkid
+</code></pre></div>
 <p>在系统启动时自动挂载硬盘，需要进行一些额外的配置,执行以下命令来打开fstab文件进行编辑：</p>
-<div class="highlight"><pre><span></span><code>sudo nano /etc/fstab
+<div class="highlight"><pre><span></span><code>sudo vi /etc/fstab
 </code></pre></div>
 <p>在文件的末尾添加以下行，用于描述要挂载的硬盘设备和挂载点的信息：</p>
-<div class="highlight"><pre><span></span><code>/dev/sdb   /mnt/mydisk   ext4   defaults   0   0
+<div class="highlight"><pre><span></span><code>UUID=XXXXXXXX   /mnt/mydisk   ext4   defaults   0   0
 </code></pre></div>
 <p>保存并关闭文件</p>
 <p>5.卸载硬盘：</p>
