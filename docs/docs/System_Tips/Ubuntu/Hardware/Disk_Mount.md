@@ -22,13 +22,17 @@
 
 4.自动挂载：
 
+查看 uuid
+
+    sudo blkid
+
 在系统启动时自动挂载硬盘，需要进行一些额外的配置,执行以下命令来打开fstab文件进行编辑：
 
-    sudo nano /etc/fstab
+    sudo vi /etc/fstab
 
 在文件的末尾添加以下行，用于描述要挂载的硬盘设备和挂载点的信息：
 
-    /dev/sdb   /mnt/mydisk   ext4   defaults   0   0
+    UUID=XXXXXXXX   /mnt/mydisk   ext4   defaults   0   0
 
 保存并关闭文件
 
