@@ -13,6 +13,10 @@ nav:
         - Hardware: System_Tips/Ubuntu/Hardware.md
         - Command: System_Tips/Ubuntu/Command.md
 - DL Skills: DL_Skills/Skills.md
+- Datasets:
+    - Water Dataset:
+        - Surface: Datasets/Water Dataset/Surface/surface.md
+        - Underwater: Datasets/Water Dataset/Underwater/underwater.md
 
 theme:
     name: material
