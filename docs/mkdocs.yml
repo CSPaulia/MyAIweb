@@ -8,6 +8,8 @@ nav:
 - Server Tips:
     - screen: Server_Tips/screen.md
 - Github Tips: Github_Tips/upload.md
+- Writing Tips:
+    - Rebuttal: Writing_Tips/rebuttal.md
 
 theme:
     name: dracula
