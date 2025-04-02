@@ -10,6 +10,34 @@ nav:
 - Github Tips: Github_Tips/upload.md
 - Writing Tips:
     - Rebuttal: Writing_Tips/rebuttal.md
+- System Tips:
+    - Ubuntu: 
+        - Hardware: System_Tips/Ubuntu/Hardware.md
+        - Command: System_Tips/Ubuntu/Command.md
+- DL Skills: DL_Skills/Skills.md
+- Datasets:
+    - Water Dataset:
+        - Surface: Datasets/Water Dataset/Surface/surface.md
+        - Underwater: Datasets/Water Dataset/Underwater/underwater.md
 
 theme:
-    name: dracula
+    name: material
+    features:
+        - content.code.copy
+        - content.code.annotate  
+
+markdown_extensions:
+    - attr_list
+    - md_in_html
+    - tables
+    - pymdownx.arithmatex:
+        generic: true
+    - pymdownx.highlight:
+        anchor_linenums: true
+    - pymdownx.inlinehilite
+    - pymdownx.snippets
+    - pymdownx.superfences
+
+extra_javascript:
+    - https://polyfill.io/v3/polyfill.min.js?features=es6
+    - https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
