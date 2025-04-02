@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+        <title>Lovasz Loss - MyAIweb</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        
+        
+        
+
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="../../../../assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="../../../../assets/css/dracula-ui.css">
+        <link rel="stylesheet" href="../../../../assets/css/mkdocs.css">
+
+        
+            <link  rel="icon" type="image/x-icon" href="../../../../assets/img/favicon.ico">
+        
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
+                <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body class="drac-bg-black-secondary drac-text-grey-ternary drac-text drac-scrollbar-purple">
+
+    <main class="d-flex">
+
+        <!-- block sidebar -->
+            <nav id="sidebar" class="sidebar drac-bg-black">
+    <div class="custom-menu">
+        <button type="button" id="sidebarCollapse" class="btn btn-primary">
+            <i class="fa fa-bars"></i>
+            <span class="sr-only">Menu</span>
+        </button>
+    </div>
+
+    <div class="p-4">
+        
+
+        <div class="drac-text-center">
+            
+                <span class="drac-text drac-line-height drac-text-white">MyAIweb</span>
+            
+        </div>
+
+        <div class="drac-box flex-column">
+            <ul class="dot-ul">
+                <li><div class="dot-li drac-bg-cyan"></div></li>
+                <li><div class="dot-li drac-bg-green"></div></li>
+                <li><div class="dot-li drac-bg-orange"></div></li>
+                <li><div class="dot-li drac-bg-pink"></div></li>
+                <li><div class="dot-li drac-bg-purple"></div></li>
+                <li><div class="dot-li drac-bg-red"></div></li>
+                <li><div class="dot-li drac-bg-yellow"></div></li>
+            </ul>
+        </div>
+
+        <hr class="drac-divider" />
+
+        <!-- block menu -->
+        <ul class="mb-5 drac-list drac-list-none">
+            
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Home
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#paper-notes-collapse" aria-expanded="false">
+                    Paper Notes
+                </a>
+                <div class="collapse" id="paper-notes-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../Paper_Notes/2D_List/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            2D
+        </a>
+    </li>
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#3d-collapse" aria-expanded="false">
+            3D
+        </a>
+
+        <div class="collapse" id="3d-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../Paper_Notes/3D/3D_Occ_List/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            3D Occupancy
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#server-tips-collapse" aria-expanded="false">
+                    Server Tips
+                </a>
+                <div class="collapse" id="server-tips-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../Server_Tips/screen/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            screen
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../Github_Tips/upload/"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    Github Tips
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#writing-tips-collapse" aria-expanded="false">
+                    Writing Tips
+                </a>
+                <div class="collapse" id="writing-tips-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="../../../../Writing_Tips/rebuttal/"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Rebuttal
+        </a>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#system-tips-collapse" aria-expanded="false">
+                    System Tips
+                </a>
+                <div class="collapse" id="system-tips-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#ubuntu-collapse" aria-expanded="false">
+            Ubuntu
+        </a>
+
+        <div class="collapse" id="ubuntu-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../System_Tips/Ubuntu/Hardware.md"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Hardware
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../System_Tips/Ubuntu/Command.md"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Command
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+            <li class="drac-box">
+                <a href="../../../../DL_Skills/Skills.md"
+                    class="
+                    drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+                    DL Skills
+                </a>
+            </li>
+            <li class="drac-box">
+                <a href="../../../.."
+                    class="
+                    drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+                    data-bs-toggle="collapse" data-bs-target="#datasets-collapse" aria-expanded="false">
+                    Datasets
+                </a>
+                <div class="collapse" id="datasets-collapse">
+                    <ul class="mb-5 drac-list drac-list-none">
+                            
+    <li class="drac-box-ternary">
+        <a href="#" class="
+            drac-anchor-secondary btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
+            data-bs-toggle="collapse" data-bs-target="#water-dataset-collapse" aria-expanded="false">
+            Water Dataset
+        </a>
+
+        <div class="collapse" id="water-dataset-collapse">
+            <ul class="mb-5 drac-list drac-list-none">
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../Datasets/Water Dataset/Surface/surface.md"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Surface
+        </a>
+    </li>
+                    
+    <li class="drac-box-ternary">
+        <a href="../../../../Datasets/Water Dataset/Underwater/underwater.md"
+            class="
+            drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
+            Underwater
+        </a>
+    </li>
+            </ul>
+        </div>
+    </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+        <!-- endblock -->
+    </div>
+</nav>
+        <!-- endblock -->
+
+        <nav class="divider drac-bg-purple-cyan"></nav>
+
+        <div class="content">
+            <!-- block header -->
+                <header>
+    <nav class="navbar navbar-expand-xl drac-bg-purple"">
+        <div class="container-fluid">
+
+            <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsMenu"
+                aria-controls="navbarsMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button> -->
+
+            <div class="collapse navbar-collapse flex-column ml-auto" id="navbarsMenu">
+                <ul class="navbar-nav">
+
+                    <!-- block preview -->
+                    <li class="nav-item">
+                            
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block search -->
+                    <li class="nav-item"><div role="search" class="search-box">
+	<form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+		<input type="text" name="q" class="drac-input drac-input-search drac-input-white drac-text-white drac-bg-black-secondary"
+		placeholder="Search docs" title="Type search term here" />
+	</form>
+</div>
+                    </li>
+                    <!--  endblock -->
+
+                    <!-- block source -->
+                    <li class="nav-item">
+                        
+                    </li>
+                    <!--  endblock -->
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+</header>
+            <!-- endblock -->
+
+            <!-- block content -->
+                <section class="p-md-5 section-content">
+    <article>
+        <p><h1 id="lovasz-loss">Lovasz Loss</h1>
+<h2 id="lovasz-loss_1">Lovasz Loss的推导</h2>
+<p>IoU (intersection-over-union，也叫jaccard index)是自然图像分割比赛中常用的一个衡量分割效果的评价指标，所以一个自然的想法就是能否将IoU作为loss function来直接优化。交并比公式：</p>
+<div class="arithmatex">\[
+J_c(y^{*},\widetilde{y}) = \frac{\vert \{y^{*}=c\} \cap \{\widetilde{y}=c\}\vert}{\vert \{y^{*}=c\} \cup \{\widetilde{y}=c\}\vert}
+\]</div>
+<p>其中<span class="arithmatex">\(y^{*}\)</span>表示Ground Truth标签，<span class="arithmatex">\(\widetilde{y}\)</span>表示预测标签，<span class="arithmatex">\(\vert \cdot \vert\)</span>表示集合中的元素个数。可以看出上式的值是介于0到1之间的，由此可以设计出损失函数：</p>
+<div class="arithmatex">\[
+\Delta_{J_c}(y^{*},\widetilde{y})=1-J_c(y^{*},\widetilde{y})
+\]</div>
+<p>这个损失函数是离散的，无法直接求导，需要对其做<strong>光滑延拓</strong>。</p>
+<p>改写一下<span class="arithmatex">\(\Delta_{J_c}\)</span>,</p>
+<div class="arithmatex">\[
+\Delta_{J_c} = 1-J_c(y^{*},\widetilde{y}) = \frac{\vert M_c \vert}{\vert \{y^{*}=c\} \cup M_c \vert} \tag{1}
+\]</div>
+<p>其中，<span class="arithmatex">\(M_c(y^{*},\widetilde{y}) = \{y^{*}=c,\widetilde{y}\neq c\} \cup \{y^{*} \neq c,\widetilde{y}=c\}\)</span>，<span class="arithmatex">\(M_c\)</span>是损失函数的自变量，它表达网络分割结果与Ground Truth标签不匹配的集合。<span class="arithmatex">\(M_c\)</span>的定义域为<span class="arithmatex">\(\{0,1\}^p\)</span>，即<span class="arithmatex">\(M_c \in \{0,1\}^p\)</span>，<span class="arithmatex">\(p\)</span>表示集合<span class="arithmatex">\(M_c\)</span>中像素的个数。</p>
+<p>由于(1)是次模（submodular）函数，故可以对其做<strong>光滑延拓</strong>。</p>
+<p><strong>定义1</strong> 若一个集合函数<span class="arithmatex">\(\Delta:\{0,1\}^p \rightarrow \mathbb{R}\)</span>对于所有的集合<span class="arithmatex">\(A,B \in \{0,1\}^p\)</span>满足</p>
+<div class="arithmatex">\[
+\Delta(A) + \Delta(B) \geq \Delta(A \cup B) + \Delta(A \cap B)
+\]</div>
+<p>则我们称<span class="arithmatex">\(\Delta\)</span>是<strong>次模函数</strong>。</p>
+<p><strong>定义2</strong> <strong>Lovasz extension</strong> 现存在一集合函数<span class="arithmatex">\(\Delta:\{0,1\}^p \rightarrow \mathbb{R}\)</span>且<span class="arithmatex">\(\Delta(\pmb{0})=0\)</span>，则其Lovasz extension为</p>
+<div class="arithmatex">\[
+\overline{\Delta} = \sum_{i=1}^p m_i g_i(\pmb{m}) \tag{2}
+\]</div>
+<div class="arithmatex">\[
+g_i(m) = \Delta(\{\pi_1,\cdots,\pi_i\}) - \Delta(\{\pi_1,\cdots,\pi_{i-1}\})
+\]</div>
+<p><span class="arithmatex">\(\pi\)</span>是一个数组，根据元素<span class="arithmatex">\(\pmb{m}\)</span>降序排序。例如，<span class="arithmatex">\(x_{\pi_1} \geq x_{\pi_2} \geq \cdots \geq x_{\pi_p}\)</span>。</p>
+<p>此时\overline{\Delta}已经是一个连续、分段线性的函数了，可以直接对误差<span class="arithmatex">\(m\)</span>求导，导数为<span class="arithmatex">\(g(m)\)</span>。</p>
+<h2 id="lovasz-loss_2">Lovasz Loss在多类分割中的应用</h2>
+<p>假设<span class="arithmatex">\(F_i(c)\)</span>表示的是模型最后输出的像素<span class="arithmatex">\(i\)</span>预测为类别<span class="arithmatex">\(c\)</span>的非归一化分数，则可以通过softmax函数将<span class="arithmatex">\(F_i(c)\)</span>归一化得到像素<span class="arithmatex">\(i\)</span>预测为类别<span class="arithmatex">\(c\)</span>的概率：</p>
+<div class="arithmatex">\[
+f_i(c) = \frac{e^{F_i(c)}}{\sum_{c' \in C} e^{F_i(c')}}
+\]</div>
+<p>那么(2)中的<span class="arithmatex">\(m_i(c)\)</span>可以定义为</p>
+<div class="arithmatex">\[
+m_i(c) = \left\{
+\begin{aligned}
+&amp; 1-f_i(c) &amp; \text{if}~c=y_i^{*} \\
+&amp; f_i(c) &amp; \text{otherwise}
+\end{aligned}
+\right.
+\]</div>
+<p>那么损失函数为</p>
+<div class="arithmatex">\[
+loss(\pmb{f}(c)) = \overline{\Delta_{J_c}}(\pmb{m}(c))
+\]</div>
+<p>考虑到类别平均mIoU的计算方式，最终的损失函数为</p>
+<div class="arithmatex">\[
+loss(\pmb{f}) = \frac{1}{\vert C \vert} \sum_{c \in C} \overline{\Delta_{J_c}}(\pmb{m}(c))
+\]</div>
+<h2 id="lovasz-loss_3">Lovasz Loss在多类分割中的代码流程</h2>
+<p><strong>步骤1</strong> 计算预测结果的误差</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">signs</span> <span class="o">=</span> <span class="mf">2.</span> <span class="o">*</span> <span class="n">predictions</span><span class="o">.</span><span class="n">float</span><span class="p">()</span> <span class="o">-</span> <span class="mf">1.</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="n">errors</span> <span class="o">=</span> <span class="p">(</span><span class="mf">1.</span> <span class="o">-</span> <span class="n">logits</span> <span class="o">*</span> <span class="n">Variable</span><span class="p">(</span><span class="n">signs</span><span class="p">))</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="n">errors_sorted</span><span class="p">,</span> <span class="n">perm</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">errors</span><span class="p">,</span> <span class="n">dim</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">descending</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div>
+<p>这一步得到(2)中的<span class="arithmatex">\(m_i\)</span>。</p>
+<p><strong>步骤2</strong> 计算IoU得分</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">gts</span> <span class="o">=</span> <span class="n">gt_sorted</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="n">intersection</span> <span class="o">=</span> <span class="n">gts</span> <span class="o">-</span> <span class="n">gt_sorted</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="n">union</span> <span class="o">=</span> <span class="n">gts</span> <span class="o">+</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">gt_sorted</span><span class="p">)</span><span class="o">.</span><span class="n">float</span><span class="p">()</span><span class="o">.</span><span class="n">cumsum</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="n">jaccard</span> <span class="o">=</span> <span class="mf">1.</span> <span class="o">-</span> <span class="n">intersection</span> <span class="o">/</span> <span class="n">union</span>
+</code></pre></div>
+<p>这一步得到(1)的值，即IoU得分。</p>
+<p><strong>步骤3</strong> 根据IoU得分计算Lovasz extension的梯度</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="n">jaccard</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">p</span><span class="p">]</span> <span class="o">=</span> <span class="n">jaccard</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="n">p</span><span class="p">]</span> <span class="o">-</span> <span class="n">jaccard</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</code></pre></div>
+<p>这一步得到(2)中的<span class="arithmatex">\(g_i(\pmb{m})\)</span>。</p>
+<p><strong>步骤4</strong> 计算Loss</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">loss</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">F</span><span class="o">.</span><span class="n">relu</span><span class="p">(</span><span class="n">errors_sorted</span><span class="p">),</span> <span class="n">Variable</span><span class="p">(</span><span class="n">grad</span><span class="p">))</span>
+</code></pre></div>
+<p>这一步得到(2)的值。</p></p>
+    </article>
+</section>
+            <!-- endblock -->
+
+            <!-- block footer -->
+                <footer>
+    <div class="d-flex flex-sm-row justify-content-between py-2 border-top drac-text-black drac-bg-cyan-green">
+        <a href="https://github.com/dracula/mkdocs" target="_blank" style="padding-left: 1%;"
+            class="footer-text drac-anchor drac-text-black drac-text-purple--hover">
+            Made with Dracula Theme for MkDocs
+        </a>
+    </div>
+</footer>
+            <!-- endblock -->
+        </div>
+
+    </main>
+
+        <script>var base_url = '../../../..';</script>
+        <script src="../../../../assets/js/jquery-3.3.1.slim.min.js""></script>
+        <script src="../../../../assets/js/bootstrap.bundle.min.js""></script>
+        <script src="../../../../assets/js/mkdocs.js""></script>
+			<script src="https://polyfill.io/v3/polyfill.min.js?features=es6" defer></script>
+			<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" defer></script>
+			<script src="../../../../search/main.js" defer></script>
+
+</body>
+
+</html>
