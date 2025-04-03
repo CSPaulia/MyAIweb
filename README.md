@@ -8,3 +8,9 @@ Website: https://cspaulia.github.io/MyAIweb/
 pip install mkdocs
 pip install mkdocs-materia
 ```
+
+## Upload
+
+```
+mkdocs gh-deploy --clean
+```
