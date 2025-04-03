@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-        <title>screen - MyAIweb</title>
+        <title>DL Skills - MyAIweb</title>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,7 +72,7 @@
             </li>
             <li class="drac-box">
                 <a href="../.."
-                    class=" active 
+                    class="
                     drac-anchor btn-toggle d-inline-flex align-items-center border-0 drac-text-purple--hover collapsed"
                     data-bs-toggle="collapse" data-bs-target="#server-tips-collapse" aria-expanded="false">
                     Server Tips
@@ -81,8 +81,8 @@
                     <ul class="mb-5 drac-list drac-list-none">
                             
     <li class="drac-box-ternary">
-        <a href="./"
-            class=" active 
+        <a href="../../Server_Tips/screen/"
+            class="
             drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
             screen
         </a>
@@ -151,8 +151,8 @@
                 </div>
             </li>
             <li class="drac-box">
-                <a href="../../DL_Skills/Skills/"
-                    class="
+                <a href="./"
+                    class=" active 
                     drac-anchor d-inline-flex align-items-center border-0 drac-text-purple--hover">
                     DL Skills
                 </a>
@@ -226,13 +226,13 @@
         <div class="container">
             <div class="row row-preview">
                 <div class="col">
-                    <a href="../.."
+                    <a href="../../System_Tips/Ubuntu/Hardware/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover">
                         <i class="fa fa-arrow-left"></i> Previous
                     </a>
                 </div>
                 <div class="col">
-                    <a href="../../Github_Tips/upload/"
+                    <a href="../../Datasets/Water%20Dataset/Surface/surface/"
                         class="btn-preview drac-btn drac-btn-outline drac-text-white drac-text-cyan-green--hover" style="padding-left: 3%;">
                         Next <i class="fa fa-arrow-right"></i>
                     </a>
@@ -269,48 +269,28 @@
             <!-- block content -->
                 <section class="p-md-5 section-content">
     <article>
-        <p><h1 id="screen">screen基本命令</h1>
-<ul>
-<li>
-<p>新建一个screen会话
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>screen -S &lt;名字&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>查看所有screen会话
-<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>screen -ls
-</code></pre></div></p>
-</li>
-<li>
-<p>恢复之前分离的会话
-<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>screen -r &lt;会话ID&gt;
-</code></pre></div></p>
-</li>
-<li>
-<p>退出当前screen会话
-<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>键盘点击ctrl+a , 然后按d
-</code></pre></div></p>
-</li>
-<li>
-<p>查看当前所在会话(id.name)
-<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>echo $STY
-</code></pre></div></p>
-</li>
-<li>
-<p>关闭会话
-如果在会话之中，输入exit或者Ctrl+d来终止这个会话。成功终止后，如果有其他处于Attached状态的screen界面，他就会跳到那个界面中，如果没有，他就会跳到默认界面上。</p>
-</li>
-<li>
-<p>删除会话
-<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>screen -X -S session_name quit
-</code></pre></div></p>
-</li>
-<li>
-<p>清理会话
-<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>screen -wipe #清理那些dead的会话
-</code></pre></div></p>
-</li>
-</ul></p>
+        <p><h2 id="normalization">Normalization</h2>
+<ol>
+<li><a href="../Normalization/LayerNormalizaition/">Layer Normalization</a></li>
+</ol>
+<h2 id="loss">Loss</h2>
+<ol>
+<li><a href="../Loss/CE/">Cross Entropy &amp; KL Divergence</a></li>
+<li><a href="../Loss/Focal/">Focal Loss</a></li>
+<li><a href="../Loss/Lovasz/">Lovasz-Softmax Loss</a></li>
+</ol>
+<h2 id="params">Params</h2>
+<ol>
+<li><a href="../Params/FLOPs/">FLOPs</a></li>
+</ol>
+<h2 id="activation-function">Activation Function</h2>
+<ol>
+<li><a href="../Activation/GELU/">GELU</a></li>
+</ol>
+<h2 id="model-blocks">Model Blocks</h2>
+<ol>
+<li><a href="../Model_Blocks/cross_attention/">Cross Attention</a></li>
+</ol></p>
     </article>
 </section>
             <!-- endblock -->
