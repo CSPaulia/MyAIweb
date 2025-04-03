@@ -1,10 +1,6 @@
 site_name: MyAIweb
 nav:
 - Home: index.md
-- Paper Notes:
-    - 2D: Paper_Notes/2D_List.md
-    - 3D: 
-        - 3D Occupancy: Paper_Notes/3D/3D_Occ_List.md
 - Server Tips:
     - screen: Server_Tips/screen.md
 - Github Tips: Github_Tips/upload.md
@@ -13,7 +9,6 @@ nav:
 - System Tips:
     - Ubuntu: 
         - Hardware: System_Tips/Ubuntu/Hardware.md
-        - Command: System_Tips/Ubuntu/Command.md
 - DL Skills: DL_Skills/Skills.md
 - Datasets:
     - Water Dataset:
@@ -21,7 +16,7 @@ nav:
         - Underwater: Datasets/Water Dataset/Underwater/underwater.md
 
 theme:
-    name: material
+    name: dracula
     features:
         - content.code.copy
         - content.code.annotate  
